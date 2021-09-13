@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 * {
   box-sizing: border-box;
@@ -7,29 +7,37 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
+  /* set height to 100vh so images fit the screem */
   height: 100vh;
 }
 
 .slider-container {
+  /* position is relative as text and buttons will be set absolute */
   position: relative;
   overflow: hidden;
+  /* 100vw and 100 vh to fill screen */
   width: 100vw;
   height: 100vh;
 }
 
 .left-slide {
   height: 100%;
+  /* width of left slider bar - can be changed but then the positioing will also need changed */
   width: 35%;
   position: absolute;
+  /* slider is set at top left - 0 0 */
   top: 0;
   left: 0;
   transition: transform 0.5s ease-in-out;
 }
 
 .left-slide > div {
+  /* height and width of div are 100% OF THE CONTAINER NOT THE WINDOW! */
+  /* the divs are stacked on top of each other but as the height is set to 100% you can only see 1 at a time */
   height: 100%;
   width: 100%;
+  /* flex to align text inside the div */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,19 +55,24 @@ body {
   height: 100%;
   position: absolute;
   top: 0;
+  /* position 35% as above in left slider - width is 100 - left position
+  THIS POSITION IS IN THE WINDOW */
   left: 35%;
   width: 65%;
   transition: transform 0.5s ease-in-out;
 }
 
 .right-slide > div {
+  /* Image properties so set no repeat and the image will cover the div and be positioned with teh centre of the image in the centre of the div */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  /* AS WITH LEFT HEIGHT AND WIDTH IS RELATIVE TO CONTAINER (div) */
   height: 100%;
   width: 100%;
 }
 
+/* simple button styling */
 button {
   background-color: #fff;
   border: none;
@@ -78,19 +91,23 @@ button:focus {
 }
 
 .slider-container .action-buttons button {
+  /* position both buttons in the middle of the window and on the divinding line - 35% */
   position: absolute;
   left: 35%;
   top: 50%;
+  /* make sure button is always on top */
   z-index: 100;
 }
 
 .slider-container .action-buttons .down-button {
+  /* position the down button 100% (of the element - basically it's own width) to the left (-x direction) */
   transform: translateX(-100%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
 .slider-container .action-buttons .up-button {
+  /* position the up arrow 100% up - (-y axis is up unlike cartesian coordinates!) */
   transform: translateY(-100%);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
